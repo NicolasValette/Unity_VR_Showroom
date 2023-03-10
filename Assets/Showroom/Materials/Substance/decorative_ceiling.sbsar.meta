@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7e6941447a466f147a7cc3ff35f5f047
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: dda12f74ff9116a42b23482252b2c482, type: 3}
+  _instancesCopy:
+  - {fileID: 11400000, guid: b5a96b90c71f30442bebe9f79cf75fbf, type: 2}
+  - {fileID: 11400000, guid: 316b33108537e1a4791d4ba588dfb850, type: 2}
+  _fileAsset: {fileID: 6013892654665635331, guid: 7e6941447a466f147a7cc3ff35f5f047,
+    type: 3}
+  _assetPath: Assets/Showroom/Materials/Substance/decorative_ceiling.sbsar

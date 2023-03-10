@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4ac47c1b2c7a39a4c96f2577b84f852f
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: dda12f74ff9116a42b23482252b2c482, type: 3}
+  _instancesCopy:
+  - {fileID: 11400000, guid: 01e975df884f1c04c9b5dbb05cbf17bc, type: 2}
+  _fileAsset: {instanceID: 0}
+  _assetPath: Assets/Showroom/Materials/Substance/ceiling_orna_002.sbsar
