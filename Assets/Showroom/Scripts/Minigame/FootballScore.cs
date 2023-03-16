@@ -11,13 +11,15 @@ namespace Shoowroom.Minigame
         [SerializeField]
         private GameObject _scorePanel;
         [SerializeField]
-        private TextMeshPro _scoreText;
+        private TMP_Text _scoreText;
+
+        private AudioSource _audioSource;
 
         private int _score;
         // Start is called before the first frame update
         void Start()
         {
-            
+            _audioSource= GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -35,8 +37,9 @@ namespace Shoowroom.Minigame
                 {
                     _scorePanel.GetComponent<PopupPanel>().PopupInfo();
                 }
-                _scoreText.text = $"Goal {_score++}";
+                _scoreText.text = $"Goal {++_score}";
                 other.gameObject.GetComponent<ParticleSystem>().Play();
+                _audioSource.Play();
             }
         }
     }
