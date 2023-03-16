@@ -11,6 +11,7 @@ TagManager:
   - Water
   - Drumstick
   - Haptic
+  - Ball
   layers:
   - Default
   - TransparentFX

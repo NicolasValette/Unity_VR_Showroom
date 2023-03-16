@@ -95,3 +95,5 @@ crashlytics-build.properties
 *.preformat.bak
 *.preformat.bak.meta
 
+Assets/Showroom/Scene/ProbuilderScene.unity
+Assets/Showroom/Scene/ProbuilderScene.unity.meta

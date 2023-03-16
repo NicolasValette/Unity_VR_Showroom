@@ -10,17 +10,7 @@ namespace Showroom.UI
         private Animator _infoPanelAnim;
 
         private bool _isPop = false;
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public bool IsPop { get => _isPop; }
 
         public void PopupInfo()
         {
