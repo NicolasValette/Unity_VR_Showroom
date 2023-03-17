@@ -12,6 +12,7 @@ TagManager:
   - Drumstick
   - Haptic
   - Ball
+  - Ground
   layers:
   - Default
   - TransparentFX

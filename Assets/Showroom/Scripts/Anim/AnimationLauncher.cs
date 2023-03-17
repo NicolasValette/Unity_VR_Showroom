@@ -18,6 +18,7 @@ namespace Showroom.Anim
         [Range(0f, 10f)]
         float speed = 0f;
 
+        private bool _isJumping = false;
         private float speedForward = 0f;
         // Start is called before the first frame update
         void Start()
@@ -31,22 +32,34 @@ namespace Showroom.Anim
 
             var keyboard = Keyboard.current;
           
-            if (keyboard.spaceKey.wasPressedThisFrame) //getkeydown
+            if (!_isJumping && keyboard.spaceKey.wasPressedThisFrame) //getkeydown
             {
                 Debug.Log("Jump");
-               // GetComponent<Rigidbody>().AddForce(Vector3.up * _jumpSpeed, ForceMode.Impulse);
+                _isJumping = true;
+                GetComponent<Rigidbody>().AddForce(Vector3.up * _jumpSpeed, ForceMode.Impulse);
                 _anim.SetTrigger("Jump");
             }
 
             if (keyboard.upArrowKey.isPressed) // = getkey
             {
                 speedForward = Mathf.Clamp(speedForward + 1f * Time.timeScale, 0, 5);
+                
             }
             else if (keyboard.downArrowKey.isPressed)
             {
                 speedForward = Mathf.Clamp(speedForward - 1f * Time.timeScale, -1,0);
             }
             _anim.SetFloat("Speed", speedForward);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (_isJumping && collision.gameObject.CompareTag("Ground"))
+            {
+                Debug.Log("Landing");
+                _isJumping = false;
+                _anim.SetTrigger("Landing");
+            }
         }
     }
 }
