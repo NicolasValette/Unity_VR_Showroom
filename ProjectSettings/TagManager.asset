@@ -13,6 +13,8 @@ TagManager:
   - Haptic
   - Ball
   - Ground
+  - Receptionist
+  - None
   layers:
   - Default
   - TransparentFX

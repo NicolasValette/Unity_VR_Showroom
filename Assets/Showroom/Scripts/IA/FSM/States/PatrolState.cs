@@ -34,7 +34,7 @@ namespace Showroom.IA.FSM.States
         public override State CanSwitch()
         {
             int rand = Random.Range(0, 100);
-            if (_canFall && rand < _runningTime % 10)
+            if (_controller.CanFall && _canFall && rand < _runningTime % 10)
             {
                 Debug.Log("Fall");
                 return new FallState(_controller);

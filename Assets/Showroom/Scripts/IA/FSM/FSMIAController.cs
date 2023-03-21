@@ -1,15 +1,17 @@
 using Showroom.Character;
+using Showroom.IA.FSM.States;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Showroom.IA.FSM.States
+namespace Showroom.IA.FSM
 {
+    [RequireComponent(typeof(NPCController))]
     public class FSMIAController : MonoBehaviour
     {
         private State _currentState;
-        private State _nextState;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -35,7 +37,7 @@ namespace Showroom.IA.FSM.States
             _currentState.ExitState();
             _currentState = state;
             _currentState.EnterState();
-            Debug.Log("State Change,from + " + initialState + " to " + _currentState.GetType());
+            Debug.Log("State Change from + " + initialState + " to " + _currentState.GetType());
         }
     }
 }

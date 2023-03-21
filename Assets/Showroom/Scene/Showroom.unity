@@ -2292,6 +2292,10 @@ PrefabInstance:
       propertyPath: m_TeleportationProvider
       value: 
       objectReference: {fileID: 59144405}
+    - target: {fileID: 1516120038, guid: b647031e7aada2c45820499eca0ba4c9, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 2147483648
+      objectReference: {fileID: 0}
     - target: {fileID: 1698900757, guid: b647031e7aada2c45820499eca0ba4c9, type: 3}
       propertyPath: m_InteractionManager
       value: 

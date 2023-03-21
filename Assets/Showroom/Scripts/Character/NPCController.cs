@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using Showroom.UI;
+using Showroom.Datas;
 
 namespace Showroom.Character
 {
@@ -20,6 +21,10 @@ namespace Showroom.Character
         private float _timeOfStanding = 5f;
         [SerializeField]
         private float _timeBetweenFall = 60f;
+        [SerializeField]
+        private CharacterData _characterData;
+        [SerializeField]
+        private bool _canFall = false;
         private bool _isJumping = false;
         private bool _metPlayer = false;
         private bool _hasGreeted = false;
@@ -27,13 +32,14 @@ namespace Showroom.Character
         public bool HasGreeted { get => _hasGreeted; }
         public float StandingTime { get => _timeOfStanding; }
         public float TimeBetweenFall { get => _timeBetweenFall; }
-        
+        public bool CanFall { get => _canFall; }
+
 
         // Start is called before the first frame update
         void Start()
         {
-
             _agent = GetComponent<NavMeshAgent>();
+            _agent.speed = _characterData.MovementSpeed;
 
         }
         // Update is called once per frame
@@ -51,7 +57,7 @@ namespace Showroom.Character
             if (keyboard.fKey.wasPressedThisFrame) //getkeydown
             {
                 Debug.Log("Fall");
-                
+
                 _anim.SetTrigger("Falling");
             }
         }
@@ -98,6 +104,7 @@ namespace Showroom.Character
 
         public bool IsGreetingsOver()
         {
+            Debug.Log("time : " + _anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
             return (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 >= 0.99f) ? true : false;
         }
         public void GreetingsOver()
@@ -119,18 +126,21 @@ namespace Showroom.Character
         }
         public bool IsStandingOver()
         {
-           // Debug.Log(_anim.GetCurrentAnimatorStateInfo(0).IsName("Standing Up"));
-            return (!_anim.GetCurrentAnimatorStateInfo(0).IsName("Standing Up") ) ? true : false;
-
-            //  return (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 >= 0.99f) ? true : false;
+            // Debug.Log("Is Standing Over (etat = "+ _anim.GetCurrentAnimatorStateInfo(0).fullPathHash + " : " + !_anim.GetCurrentAnimatorStateInfo(0).IsName("Standing Up"));
+            //return (!_anim.GetCurrentAnimatorStateInfo(0).IsName("Standing Up")) ? true : false;
+            
+            return (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 >= 0.99f) ? true : false;
         }
         #endregion
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            for (int i = 0; i < _characterData.GreetingsTags.Count; i++)
             {
-                _metPlayer = true;
+                if (other.CompareTag(_characterData.GreetingsTags[i].ToString()))
+                {
+                    _metPlayer = true;
+                }
             }
         }
 

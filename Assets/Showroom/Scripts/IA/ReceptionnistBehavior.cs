@@ -53,7 +53,7 @@ namespace Showroom.IA
                         _nextState = ReceptionistState.Patrol;
                         return true;
                     }
-                    break;
+                    break;       
             }
             return false;
         }
