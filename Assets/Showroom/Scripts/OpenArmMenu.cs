@@ -16,6 +16,8 @@ namespace Showroom
         [SerializeField]
         private GameObject _rightMenu;
 
+        private Animator _rightAnim;
+        private Animator _leftAnim;
         private void OnEnable()
         {
             _toggleLeftMenu.action.started += ToggleLeftMenu;

@@ -87,6 +87,8 @@ namespace Showroom.Character
         public void StopPatrol()
         {
             _agent.isStopped = true;
+            _anim.SetFloat("Speed", 0f);
+            _agent.velocity = Vector3.zero;
         }
         #endregion
 
@@ -126,10 +128,13 @@ namespace Showroom.Character
         }
         public bool IsStandingOver()
         {
-            // Debug.Log("Is Standing Over (etat = "+ _anim.GetCurrentAnimatorStateInfo(0).fullPathHash + " : " + !_anim.GetCurrentAnimatorStateInfo(0).IsName("Standing Up"));
-            //return (!_anim.GetCurrentAnimatorStateInfo(0).IsName("Standing Up")) ? true : false;
+            AnimatorStateInfo asi = _anim.GetCurrentAnimatorStateInfo(0);
+            string str = "Standing Up";
+            int i = str.GetHashCode();
+            Debug.Log("Is Standing Over ( = "+ _anim.GetCurrentAnimatorStateInfo(0).IsName("Standing Up")) ;
+            return (_anim.GetCurrentAnimatorStateInfo(0).IsName("IdleWalkRun"));
             
-            return (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 >= 0.99f) ? true : false;
+            //return (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 >= 0.99f) ? true : false;
         }
         #endregion
 

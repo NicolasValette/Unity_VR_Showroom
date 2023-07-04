@@ -17,7 +17,6 @@ namespace Showroom.Datas.Editors
             int tagIndex = 0;
             base.OnInspectorGUI();
            
-           
             EditorUtility.SetDirty(target);
         }
     

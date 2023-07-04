@@ -21,6 +21,7 @@ namespace Showroom.IA.FSM.States
         public override void EnterState()
         {
             _fallingStartTime = Time.time;
+
             _controller.Falling();
         }
 
